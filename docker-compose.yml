@@ -4,14 +4,14 @@ services:
     build:
       context: ./
       dockerfile: Dockerfile
-    container_name: php
+    container_name: mxtransition-php
     volumes:
       - ./:/var/www/html
     environment:
       - PHP_OPCACHE_VALIDATE_TIMESTAMPS=1
       - PHP_OPCACHE_MEMORY_CONSUMPTION=128
     networks:
-      - app-network
+      - mxtransition-network
     configs:
       - source: php-fpm-config
         target: /usr/local/etc/php-fpm.d/www.conf
@@ -20,23 +20,23 @@ services:
 
   mariadb:
     image: mariadb:latest
-    container_name: mariadb
+    container_name: mxtransition-mariadb
     environment:
       MYSQL_ROOT_PASSWORD: root_password
       MYSQL_DATABASE: trongate
       MYSQL_USER: trongate
-      MYSQL_PASSWORD: app_password
+      MYSQL_PASSWORD: mxtransition_password
     volumes:
       - mariadb_data:/var/lib/mysql
       - ./setup.sql:/docker-entrypoint-initdb.d/setup.sql
     networks:
-      - app-network
+      - mxtransition-network
 
 volumes:
   mariadb_data:
 
 networks:
-  app-network:
+  mxtransition-network:
 
 configs:
   php-fpm-config:
