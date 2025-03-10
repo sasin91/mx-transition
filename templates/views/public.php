@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" mx-transition="reload">
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,7 +7,8 @@
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 	<link rel="stylesheet" href="css/trongate.css">
 	<link rel="stylesheet" href="css/app.css">
-	<title>Public</title>
+	<link rel="icon" type="image/x-icon" href="/favicon.png">
+	<title><?= WEBSITE_NAME ?></title>
 </head>
 <body>
 	<div class="wrapper">
@@ -28,9 +29,9 @@
 				</div>
 				<div>
 					<ul id="top-nav">
-						<li><a href="<?= BASE_URL ?>"><i class="fa fa-home"></i> Home</a></li>
-						<li><a href="<?= BASE_URL ?>"><i class="fa fa-lightbulb-o"></i> About Us</a></li>
-						<li><a href="<?= BASE_URL ?>"><i class="fa fa-street-view"></i> Our Values</a></li>
+						<li><a href="<?= BASE_URL ?>/" mx-transition="reload"><i class="fa fa-home"></i> Home</a></li>
+						<li><a href="<?= BASE_URL ?>about" mx-transition><i class="fa fa-lightbulb-o"></i> About Us</a></li>
+						<li><a href="<?= BASE_URL ?>our_values" mx-transition="none"><i class="fa fa-street-view"></i> Our Values</a></li>
 						<li><a href="<?= BASE_URL ?>"><i class="fa fa-gears"></i> How We Work</a></li>
 						<li><a href="<?= BASE_URL ?>"><i class="fa fa-send"></i> Get In Touch</a></li>
 					</ul>
@@ -51,5 +52,6 @@
 		<ul auto-populate="true"></ul>
 	</div>
 	<script src="js/app.js"></script>
+	<script src="js/trongate-mx.js"></script>
 </body>
 </html>
